@@ -5,6 +5,11 @@
 # not work, so we loop.
 MAXTRIES=15
 
+
+/system/bin/insmod /system/lib/modules/wlan.ko
+/system/bin/insmod /system/lib/modules/hci_smd.ko
+insmod /system/lib/modules/wlan.ko
+
 #fix wlan
 j=1
 while [ ! $j -gt $MAXTRIES ]  ; do
