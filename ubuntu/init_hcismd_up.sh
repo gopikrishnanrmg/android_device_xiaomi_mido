@@ -22,11 +22,12 @@ while [ ! $j -gt $MAXTRIES ]  ; do
     
     j=$((j + 1))
 done
-echo 1 > /sys/module/hci_smd/parameters/hcismd_set
+
 #setprop bluetooth.hciattach true
 setprop ro.qualcomm.bt.hci_transport smd
 setprop qcom.bt.dev_power_class 2
 setprop qcom.bt.le_dev_pwr_class 2
+
 echo 1 > /sys/module/hci_smd/parameters/hcismd_set
 i=1
 while [ ! $i -gt $MAXTRIES ]  ; do
@@ -49,6 +50,6 @@ while [ ! $i -gt $MAXTRIES ]  ; do
         # must have gotten through all our retries, fail
         exit 1
     fi
-echo 1 > /sys/module/hci_smd/parameters/hcismd_set
 done
-echo 1 > /sys/module/hci_smd/parameters/hcismd_set
+
+#echo 1 > /sys/module/hci_smd/parameters/hcismd_set
