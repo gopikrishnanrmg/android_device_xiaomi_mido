@@ -47,6 +47,7 @@ while [ ! $i -gt $MAXTRIES ]  ; do
     sleep 1
     i=$((i + 1))
     if [ $i == $MAXTRIES ] ; then
+    echo 1 > /sys/module/hci_smd/parameters/hcismd_set
         # must have gotten through all our retries, fail
         exit 1
     fi
